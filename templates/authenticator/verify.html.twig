@@ -3,15 +3,4 @@
 {% block title %}Verify{% endblock %}
 
 {% block body %}
-    <h1>Verify</h1>
-
-    <form method="post">
-        <label for="otp">OTP Code</label>
-        <input id="otp" type="text" name="otp" />
-        <button type="submit">Verify</button>
-    </form>
-
-    {% if result is not null %}
-        <p>{{ result == true ? 'Le code est bon' : 'Cest pas bon' }}</p>
-    {% endif %}
 {% endblock %}
