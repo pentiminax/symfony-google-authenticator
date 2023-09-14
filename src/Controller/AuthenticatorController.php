@@ -47,9 +47,9 @@ class AuthenticatorController extends AbstractController
             return $this->redirectToRoute('app_authenticator_pair');
         }
 
-        $totp = TOTP::createFromSecret($this->getUser()->getSecret());
-
         if ($request->isMethod(Request::METHOD_POST)) {
+            $totp = TOTP::createFromSecret($this->getUser()->getSecret());
+
             $otp = $request->request->get('otp');
 
             $result = $totp->verify($otp);
