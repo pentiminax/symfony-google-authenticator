@@ -34,7 +34,7 @@ class AuthenticatorController extends AbstractController
 
         [$qrCodeUri, $secret] = $this->authenticatorService->getQrCodeUri($this->getUser());
 
-        return $this->render('home/index.html.twig', [
+        return $this->render('authenticator/pair.html.twig', [
             'qrCodeUri' => $qrCodeUri,
             'secret' => $secret
         ]);
