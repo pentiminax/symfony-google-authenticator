@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    {% if qrCodeUri is defined and secret is defined %}
+        <img alt="QR Code" src="{{ qrCodeUri }}" />
+        <form method="post">
+            <input type="hidden" name="secret" value="{{ secret }}" />
+            <button type="submit">Validate Pairing</button>
+        </form>
+    {% else %}
+        <a href="{{ path('app_authenticator_pair') }}" style="text-decoration: none;">
+            <button>Pair</button>
+        </a>
+        <a href="{{ path('app_authenticator_verify') }}">
+            <button>Verify</button>
+        </a>
+    {% endif %}
+{% endblock %}
